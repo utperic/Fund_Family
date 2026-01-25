@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>家族基金資產管理 | 精銳版</title>
+    <title>家族基金資產管理 | 進階分析版</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -21,92 +21,75 @@
         <div class="flex flex-col md:flex-row justify-between items-center mb-10 space-y-4 md:space-y-0 animate__animated animate__fadeInDown">
             <div>
                 <h1 class="text-4xl font-bold gradient-text font-tech">FAMILY FUND PRO</h1>
-                <p class="text-slate-400 mt-2">資產管理監控系統 v2.0</p>
+                <p class="text-slate-400 mt-2">資產管理監控系統 v2.1 (含平均成本分析)</p>
             </div>
             <div class="glass px-6 py-3 rounded-2xl flex items-center space-x-4">
                 <div class="text-right border-r border-slate-700 pr-4">
-                    <p class="text-xs text-slate-500 uppercase">System Status</p>
-                    <p class="text-emerald-400 text-sm font-bold">Online</p>
+                    <p class="text-xs text-slate-500 uppercase">Current NAV</p>
+                    <p class="text-amber-400 text-sm font-bold font-tech">10.34</p>
                 </div>
                 <div>
-                    <p class="text-xs text-slate-500 uppercase">Last Sync</p>
-                    <p class="text-sm">2026-01-22 14:30</p>
+                    <p class="text-xs text-slate-500 uppercase">Last Update</p>
+                    <p class="text-sm">2026-01-22</p>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div class="glass p-6 rounded-3xl glow-blue animate__animated animate__zoomIn">
-                <p class="text-slate-400 text-sm mb-1">總資產 (Total Assets)</p>
-                <p class="text-3xl font-tech font-bold text-white" id="val-total-assets">$1,870,091</p>
+                <p class="text-slate-400 text-sm mb-1">管理總資產 (AUM)</p>
+                <p class="text-3xl font-tech font-bold text-white">$1,870,091</p>
             </div>
             <div class="glass p-6 rounded-3xl animate__animated animate__zoomIn animate__delay-1s">
-                <p class="text-slate-400 text-sm mb-1">累計損益 (Total PnL)</p>
-                <p class="text-3xl font-tech font-bold text-emerald-400" id="val-total-pnl">+$63,604</p>
+                <p class="text-slate-400 text-sm mb-1">累計總盈虧 (PnL)</p>
+                <p class="text-3xl font-tech font-bold text-emerald-400">+$63,604</p>
             </div>
             <div class="glass p-6 rounded-3xl animate__animated animate__zoomIn animate__delay-2s">
-                <p class="text-slate-400 text-sm mb-1">整體報酬率 (ROI)</p>
-                <p class="text-3xl font-tech font-bold text-blue-400" id="val-total-roi">3.52%</p>
-            </div>
-            <div class="glass p-6 rounded-3xl animate__animated animate__zoomIn animate__delay-3s">
-                <p class="text-slate-400 text-sm mb-1">當前淨值 (NAV)</p>
-                <p class="text-3xl font-tech font-bold text-amber-400" id="val-current-nav">10.34</p>
+                <p class="text-slate-400 text-sm mb-1">基金累計報酬率</p>
+                <p class="text-3xl font-tech font-bold text-blue-400">3.49%</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
-            <div class="glass p-8 rounded-3xl lg:col-span-1 animate__animated animate__fadeInLeft">
-                <h3 class="text-lg font-bold mb-6 flex items-center">
-                    <span class="w-2 h-6 bg-blue-500 rounded mr-3"></span> 資產佔比配置
-                </h3>
-                <div class="relative h-64">
-                    <canvas id="allocationChart"></canvas>
-                </div>
+            <div class="glass p-8 rounded-3xl lg:col-span-1">
+                <h3 class="text-lg font-bold mb-6 flex items-center">策略配置比例</h3>
+                <div class="relative h-64"><canvas id="allocationChart"></canvas></div>
             </div>
-            <div class="glass p-8 rounded-3xl lg:col-span-2 animate__animated animate__fadeInRight">
-                <h3 class="text-lg font-bold mb-6 flex items-center">
-                    <span class="w-2 h-6 bg-emerald-500 rounded mr-3"></span> 淨值走勢與報酬分析
-                </h3>
-                <div class="h-64">
-                    <canvas id="performanceChart"></canvas>
-                </div>
+            <div class="glass p-8 rounded-3xl lg:col-span-2">
+                <h3 class="text-lg font-bold mb-6 flex items-center">單位淨值成長走勢</h3>
+                <div class="h-64"><canvas id="performanceChart"></canvas></div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
-            <div class="lg:col-span-2 glass p-8 rounded-3xl overflow-hidden animate__animated animate__fadeInUp">
-                <h3 class="text-lg font-bold mb-6">股東核心數據</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="text-slate-500 text-sm text-left border-b border-slate-800">
-                                <th class="pb-4">股東姓名</th>
-                                <th class="pb-4">投資本金</th>
-                                <th class="pb-4">當前價值</th>
-                                <th class="pb-4 text-right">獲利狀態 (ROI)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="shareholder-rows" class="divide-y divide-slate-800">
-                            </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="glass p-8 rounded-3xl animate__animated animate__fadeInUp">
-                <h3 class="text-lg font-bold mb-6">近期交易動態</h3>
-                <div class="space-y-6" id="activity-timeline">
-                    </div>
+        <div class="glass p-8 rounded-3xl overflow-hidden mb-10 animate__animated animate__fadeInUp">
+            <h3 class="text-lg font-bold mb-6 flex justify-between items-center">
+                <span>股東持倉與成本分析</span>
+                <span class="text-xs font-normal text-slate-500">* 平均成本 = 總投入 / 總單位</span>
+            </h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="text-slate-500 text-sm text-left border-b border-slate-800">
+                            <th class="pb-4">股東</th>
+                            <th class="pb-4">平均成本淨值</th>
+                            <th class="pb-4">投入本金</th>
+                            <th class="pb-4">當前價值</th>
+                            <th class="pb-4 text-right">損益 (ROI)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="shareholder-rows" class="divide-y divide-slate-800 text-sm md:text-base">
+                        </tbody>
+                </table>
             </div>
         </div>
     </div>
 
     <script>
-        // === 數據區：未來手動更新請修改此對象 ===
         const RAW_DATA = {
             "dashboard": [
-                { "name": "我 (管理者)", "principal": 1296486, "current": 1340596, "pnl": 44110, "roi": 0.034 },
-                { "name": "雷爸爸", "principal": 100000, "current": 105544, "pnl": 5544, "roi": 0.055 },
-                { "name": "弟弟", "principal": 410000, "current": 423949, "pnl": 13949, "roi": 0.034 }
+                { "name": "我 (管理者)", "avg_cost": 10.00, "principal": 1296487, "current": 1340597, "pnl": 44110, "roi": 0.034 },
+                { "name": "雷爸爸", "avg_cost": 9.797, "principal": 100000, "current": 105545, "pnl": 5545, "roi": 0.055 },
+                { "name": "弟弟", "avg_cost": 10.00, "principal": 410000, "current": 423949, "pnl": 13949, "roi": 0.034 }
             ],
             "strategy": [
                 { "name": "國泰股票", "value": 993677 },
@@ -119,45 +102,32 @@
                 { "date": "01/14", "nav": 9.89, "roi": -1.08 },
                 { "date": "01/20", "nav": 10.39, "roi": 3.96 },
                 { "date": "01/22", "nav": 10.34, "roi": 3.49 }
-            ],
-            "tx": [
-                { "date": "2026-01-03", "name": "雷爸爸", "amount": 100000 },
-                { "date": "2025-12-31", "name": "弟弟", "amount": 410000 },
-                { "date": "2025-12-30", "name": "我 (管理者)", "amount": 1296486 }
             ]
         };
 
-        // 1. 渲染股東表格
+        const currentNAV = 10.34;
+
+        // 渲染表格
         const tbody = document.getElementById('shareholder-rows');
         RAW_DATA.dashboard.forEach(s => {
+            const isProfit = currentNAV > s.avg_cost;
             const row = `
                 <tr class="hover:bg-slate-800/50 transition-colors">
-                    <td class="py-5 font-bold">${s.name}</td>
-                    <td class="py-5 font-tech text-slate-300">$${s.principal.toLocaleString()}</td>
-                    <td class="py-5 font-tech text-white">$${s.current.toLocaleString()}</td>
+                    <td class="py-5 font-bold text-blue-400">${s.name}</td>
+                    <td class="py-5 font-tech ${isProfit ? 'text-emerald-400' : 'text-rose-400'}">
+                        ${s.avg_cost.toFixed(3)}
+                    </td>
+                    <td class="py-5 font-tech text-slate-400">$${s.principal.toLocaleString()}</td>
+                    <td class="py-5 font-tech text-white font-bold">$${s.current.toLocaleString()}</td>
                     <td class="py-5 text-right">
                         <span class="text-emerald-400 font-bold">+$${s.pnl.toLocaleString()}</span>
-                        <div class="text-xs text-slate-500">${(s.roi * 100).toFixed(2)}%</div>
+                        <div class="text-xs text-slate-500 font-tech">${(s.roi * 100).toFixed(2)}%</div>
                     </td>
                 </tr>`;
             tbody.innerHTML += row;
         });
 
-        // 2. 渲染時間軸
-        const timeline = document.getElementById('activity-timeline');
-        RAW_DATA.tx.forEach(t => {
-            const item = `
-                <div class="flex items-start space-x-4">
-                    <div class="mt-1.5 w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)]"></div>
-                    <div>
-                        <p class="text-sm font-bold text-white">${t.name} 入金成功</p>
-                        <p class="text-xs text-slate-500 font-tech">$${t.amount.toLocaleString()} | ${t.date}</p>
-                    </div>
-                </div>`;
-            timeline.innerHTML += item;
-        });
-
-        // 3. 配置圓餅圖
+        // 圓餅圖
         new Chart(document.getElementById('allocationChart'), {
             type: 'doughnut',
             data: {
@@ -165,50 +135,31 @@
                 datasets: [{
                     data: RAW_DATA.strategy.map(x => x.value),
                     backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
-                    borderWidth: 0,
-                    hoverOffset: 20
+                    borderWidth: 0
                 }]
             },
-            options: {
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', padding: 20 } } },
-                cutout: '70%'
-            }
+            options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8' } } }, cutout: '75%' }
         });
 
-        // 4. 淨值走勢圖
+        // 走勢圖
         new Chart(document.getElementById('performanceChart'), {
             type: 'line',
             data: {
                 labels: RAW_DATA.pnl.map(x => x.date),
-                datasets: [
-                    {
-                        label: '單位淨值',
-                        data: RAW_DATA.pnl.map(x => x.nav),
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59,130,246,0.1)',
-                        fill: true,
-                        tension: 0.4,
-                        yAxisID: 'y'
-                    },
-                    {
-                        label: '累計報酬率 (%)',
-                        data: RAW_DATA.pnl.map(x => x.roi),
-                        borderColor: '#10b981',
-                        borderDash: [5, 5],
-                        fill: false,
-                        tension: 0,
-                        yAxisID: 'y1'
-                    }
-                ]
+                datasets: [{
+                    label: 'NAV',
+                    data: RAW_DATA.pnl.map(x => x.nav),
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59,130,246,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
             },
             options: {
                 maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false },
                 plugins: { legend: { display: false } },
                 scales: {
-                    y: { position: 'left', grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
-                    y1: { position: 'right', grid: { display: false }, ticks: { color: '#10b981' } },
+                    y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
                     x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
                 }
             }
