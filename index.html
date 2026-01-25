@@ -86,26 +86,27 @@
 
     <script>
         const RAW_DATA = {
-            "dashboard": [
-                { "name": "我 (管理者)", "avg_cost": 10.00, "principal": 1296487, "current": 1340597, "pnl": 44110, "roi": 0.034 },
-                { "name": "雷爸爸", "avg_cost": 9.797, "principal": 100000, "current": 105545, "pnl": 5545, "roi": 0.055 },
-                { "name": "弟弟", "avg_cost": 10.00, "principal": 410000, "current": 423949, "pnl": 13949, "roi": 0.034 }
-            ],
-            "strategy": [
-                { "name": "國泰股票", "value": 993677 },
-                { "name": "元富選擇權", "value": 507304 },
-                { "name": "IB 美股", "value": 369110 }
-            ],
-            "pnl": [
-                { "date": "12/31", "nav": 10.00, "roi": 0 },
-                { "date": "01/03", "nav": 9.80, "roi": -2.03 },
-                { "date": "01/14", "nav": 9.89, "roi": -1.08 },
-                { "date": "01/20", "nav": 10.39, "roi": 3.96 },
-                { "date": "01/22", "nav": 10.34, "roi": 3.49 }
-            ]
-        };
+        "dashboard": [
+            { "name": "我 (管理者)", "avg_cost": 9.946, "principal": 1096487, "current": 1136432, "pnl": 39945, "roi": 0.0364 },
+            { "name": "雷爸爸", "avg_cost": 9.797, "principal": 100000, "current": 105217, "pnl": 5217, "roi": 0.0522 },
+            { "name": "弟弟", "avg_cost": 10.150, "principal": 810000, "current": 822637, "pnl": 12637, "roi": 0.0156 }
+        ],
+        "strategy": [
+            { "name": "國泰股票", "value": 1194287 },
+            { "name": "元富選擇權", "value": 510270 },
+            { "name": "IB 美股", "value": 359729 }
+        ],
+        "pnl": [
+            { "date": "12/31", "nav": 10.00, "roi": 0.00 },
+            { "date": "01/03", "nav": 9.80, "roi": -2.03 },
+            { "date": "01/14", "nav": 9.89, "roi": -1.08 },
+            { "date": "01/20", "nav": 10.39, "roi": 3.96 },
+            { "date": "01/22", "nav": 10.34, "roi": 3.49 },
+            { "date": "01/25", "nav": 10.31, "roi": 3.18 }
+        ]
+    };
 
-        const currentNAV = 10.34;
+        const currentNAV = 10.308;
 
         // 渲染表格
         const tbody = document.getElementById('shareholder-rows');
