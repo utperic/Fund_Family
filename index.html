@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>家族基金資產管理 </title>
+    <title>家族基金資產管理 | Family Fund Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -26,11 +26,11 @@
             <div class="glass px-6 py-3 rounded-2xl flex items-center space-x-4">
                 <div class="text-right border-r border-slate-700 pr-4">
                     <p class="text-xs text-slate-500 uppercase">Current NAV</p>
-                    <p class="text-amber-400 text-sm font-bold font-tech">10.308</p>
+                    <p class="text-amber-400 text-sm font-bold font-tech">10.502</p>
                 </div>
                 <div>
                     <p class="text-xs text-slate-500 uppercase">Last Update</p>
-                    <p class="text-sm">2026-01-25</p>
+                    <p class="text-sm">2026-01-28</p>
                 </div>
             </div>
         </div>
@@ -38,15 +38,15 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             <div class="glass p-6 rounded-3xl glow-blue animate__animated animate__zoomIn">
                 <p class="text-slate-400 text-sm mb-1">管理總資產 (AUM)</p>
-                <p class="text-3xl font-tech font-bold text-white">$2,064,286</p>
+                <p class="text-3xl font-tech font-bold text-white">$2,103,084</p>
             </div>
             <div class="glass p-6 rounded-3xl animate__animated animate__zoomIn animate__delay-1s">
                 <p class="text-slate-400 text-sm mb-1">累計總盈虧 (PnL)</p>
-                <p class="text-3xl font-tech font-bold text-emerald-400">+$57,799</p>
+                <p class="text-3xl font-tech font-bold text-emerald-400">+$96,597</p>
             </div>
             <div class="glass p-6 rounded-3xl animate__animated animate__zoomIn animate__delay-2s">
                 <p class="text-slate-400 text-sm mb-1">基金累計報酬率</p>
-                <p class="text-3xl font-tech font-bold text-blue-400">3.08%</p>
+                <p class="text-3xl font-tech font-bold text-blue-400">5.07%</p>
             </div>
         </div>
 
@@ -67,9 +67,9 @@
                 <span class="text-xs font-normal text-slate-500">* 平均成本 = 總投入 / 總單位</span>
             </h3>
             <div class="overflow-x-auto">
-                <table class="w-full">
+                <table class="w-full text-left">
                     <thead>
-                        <tr class="text-slate-500 text-sm text-left border-b border-slate-800">
+                        <tr class="text-slate-500 text-sm border-b border-slate-800">
                             <th class="pb-4">股東</th>
                             <th class="pb-4">平均成本淨值</th>
                             <th class="pb-4">投入本金</th>
@@ -77,38 +77,39 @@
                             <th class="pb-4 text-right">損益 (ROI)</th>
                         </tr>
                     </thead>
-                    <tbody id="shareholder-rows" class="divide-y divide-slate-800 text-sm md:text-base">
-                        </tbody>
+                    <tbody id="shareholder-rows" class="divide-y divide-slate-800 text-sm md:text-base"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
     <script>
+        // === 數據區：最新更新日期 2026-01-28 ===
         const RAW_DATA = {
-        "dashboard": [
-            { "name": "我 (管理者)", "avg_cost": 9.946, "principal": 1096487, "current": 1136432, "pnl": 39945, "roi": 0.0364 },
-            { "name": "雷爸爸", "avg_cost": 9.797, "principal": 100000, "current": 105217, "pnl": 5217, "roi": 0.0522 },
-            { "name": "弟弟", "avg_cost": 10.150, "principal": 810000, "current": 822637, "pnl": 12637, "roi": 0.0156 }
-        ],
-        "strategy": [
-            { "name": "國泰股票", "value": 1194287 },
-            { "name": "元富選擇權", "value": 510270 },
-            { "name": "IB 美股", "value": 359729 }
-        ],
-        "pnl": [
-            { "date": "12/31", "nav": 10.00, "roi": 0.00 },
-            { "date": "01/03", "nav": 9.80, "roi": -2.03 },
-            { "date": "01/14", "nav": 9.89, "roi": -1.08 },
-            { "date": "01/20", "nav": 10.39, "roi": 3.96 },
-            { "date": "01/22", "nav": 10.34, "roi": 3.49 },
-            { "date": "01/25", "nav": 10.31, "roi": 3.18 }
-        ]
-    };
+            "dashboard": [
+                { "name": "我 (管理者)", "avg_cost": 9.946, "principal": 1096487, "current": 1157791, "pnl": 61304, "roi": 0.0559 },
+                { "name": "雷爸爸", "avg_cost": 9.797, "principal": 100000, "current": 107195, "pnl": 7195, "roi": 0.0719 },
+                { "name": "弟弟", "avg_cost": 10.150, "principal": 810000, "current": 838099, "pnl": 28099, "roi": 0.0347 }
+            ],
+            "strategy": [
+                { "name": "國泰股票", "value": 736554 },
+                { "name": "元富選擇權", "value": 1018195 },
+                { "name": "IB 美股", "value": 348335 }
+            ],
+            "pnl": [
+                { "date": "12/31", "nav": 10.00 },
+                { "date": "01/03", "nav": 9.80 },
+                { "date": "01/14", "nav": 9.89 },
+                { "date": "01/20", "nav": 10.39 },
+                { "date": "01/22", "nav": 10.34 },
+                { "date": "01/25", "nav": 10.31 },
+                { "date": "01/28", "nav": 10.50 }
+            ]
+        };
 
-        const currentNAV = 10.308;
+        const currentNAV = 10.502;
 
-        // 渲染表格
+        // 渲染股東表格
         const tbody = document.getElementById('shareholder-rows');
         RAW_DATA.dashboard.forEach(s => {
             const isProfit = currentNAV > s.avg_cost;
@@ -128,7 +129,7 @@
             tbody.innerHTML += row;
         });
 
-        // 圓餅圖
+        // 策略圓餅圖
         new Chart(document.getElementById('allocationChart'), {
             type: 'doughnut',
             data: {
@@ -142,7 +143,7 @@
             options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8' } } }, cutout: '75%' }
         });
 
-        // 走勢圖
+        // 淨值成長走勢圖
         new Chart(document.getElementById('performanceChart'), {
             type: 'line',
             data: {
