@@ -3,118 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>家族基金 Pro | 高級資產管理系統</title>
+    <title>Family Fund Pro | Institutional Monitor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: #0f172a; color: #f1f5f9; }
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #020617; color: #f1f5f9; }
         .font-tech { font-family: 'Orbitron', sans-serif; }
-        .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .glow-emerald { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
-        .gradient-text { background: linear-gradient(90deg, #3b82f6, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .metric-card { transition: all 0.3s ease; }
-        .metric-card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.4); }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { border-color: rgba(59, 130, 246, 0.4); transform: translateY(-2px); }
+        .gradient-text { background: linear-gradient(135deg, #60a5fa, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="p-4 md:p-10">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8 animate__animated animate__fadeInDown">
-            <div>
-                <h1 class="text-4xl font-bold gradient-text font-tech">FAMILY FUND PRO</h1>
-                <p class="text-slate-400 mt-1">Finance Researcher / Strategy Monitor</p>
-            </div>
-            <div class="glass px-6 py-3 rounded-2xl flex items-center space-x-6">
-                <div class="text-right border-r border-slate-700 pr-6">
-                    <p class="text-xs text-slate-500 uppercase">Latest NAV</p>
-                    <p class="text-amber-400 text-xl font-bold font-tech">10.771</p>
+<body class="p-4 md:p-10 lg:px-20">
+    <div class="max-w-[1600px] mx-auto">
+        
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-10 space-y-6">
+            <div class="animate__animated animate__fadeInLeft">
+                <div class="flex items-center space-x-3 mb-2">
+                    <span class="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[10px] font-bold rounded uppercase tracking-widest">Research Tier</span>
+                    <span class="text-slate-500 text-xs">ID: FAMILY-FUND-001</span>
                 </div>
-                <div>
-                    <p class="text-xs text-slate-500 uppercase">Update Date</p>
-                    <p class="text-sm font-tech">2026-02-25</p>
+                <h1 class="text-5xl font-bold font-tech gradient-text tracking-tighter">FAMILY FUND PRO</h1>
+                <p class="text-slate-400 mt-2 font-light">全自動化槓桿投資與家用現金流監控系統</p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 animate__animated animate__fadeInRight">
+                <div class="glass p-4 rounded-2xl min-w-[160px]">
+                    <p class="text-slate-500 text-[10px] uppercase font-bold mb-1">Current NAV</p>
+                    <p class="text-2xl font-tech font-bold text-amber-400">10.771</p>
+                </div>
+                <div class="glass p-4 rounded-2xl min-w-[160px]">
+                    <p class="text-slate-500 text-[10px] uppercase font-bold mb-1">Status</p>
+                    <div class="flex items-center text-emerald-400 font-bold">
+                        <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse mr-2"></span>
+                        <span class="text-sm">MARKET OPEN</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="glass p-6 rounded-3xl metric-card glow-emerald">
-                <p class="text-slate-400 text-xs mb-1 uppercase">管理總資產 (AUM)</p>
-                <p class="text-2xl font-tech font-bold text-white">$4,210,612</p>
-            </div>
-            <div class="glass p-6 rounded-3xl metric-card">
-                <p class="text-slate-400 text-xs mb-1 uppercase">累計總盈虧 (PnL)</p>
-                <p class="text-2xl font-tech font-bold text-emerald-400">+$204,125</p>
-            </div>
-            <div class="glass p-6 rounded-3xl metric-card">
-                <p class="text-slate-400 text-xs mb-1 uppercase">年化預期報酬 (Est.)</p>
-                <p class="text-2xl font-tech font-bold text-blue-400">62.2%</p>
-            </div>
-            <div class="glass p-6 rounded-3xl metric-card">
-                <p class="text-slate-400 text-xs mb-1 uppercase">資產槓桿倍數</p>
-                <p class="text-2xl font-tech font-bold text-rose-400">1.9x</p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 animate__animated animate__fadeIn">
-            <div class="glass p-5 rounded-2xl border-l-4 border-emerald-500">
-                <p class="text-slate-500 text-xs mb-1">夏普值 (Sharpe Ratio)</p>
-                <div class="flex items-center justify-between">
-                    <span class="text-xl font-tech font-bold text-white">3.41</span>
-                    <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded">極優</span>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-10">
+            <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-3xl card-hover border-b-4 border-blue-500">
+                    <p class="text-slate-400 text-xs mb-1 uppercase tracking-wider font-bold">管理總資產 (AUM)</p>
+                    <p class="text-4xl font-tech font-bold text-white">$4,210,612</p>
+                    <p class="text-xs text-slate-500 mt-2">包含房貸槓桿 $2,000,000</p>
+                </div>
+                <div class="glass p-6 rounded-3xl card-hover border-b-4 border-emerald-500">
+                    <p class="text-slate-400 text-xs mb-1 uppercase tracking-wider font-bold">累積總盈虧 (PnL)</p>
+                    <p class="text-4xl font-tech font-bold text-emerald-400">+$204,125</p>
+                    <p class="text-xs text-emerald-500/60 mt-2">↑ 5.09% Since Inception</p>
+                </div>
+                <div class="glass p-6 rounded-3xl card-hover border-b-4 border-amber-500">
+                    <p class="text-slate-400 text-xs mb-1 uppercase tracking-wider font-bold">家用覆蓋週數</p>
+                    <p class="text-4xl font-tech font-bold text-amber-400">32.4<span class="text-sm ml-1 text-slate-500">Wks</span></p>
+                    <p class="text-xs text-slate-500 mt-2">現有獲利可支付家用時長</p>
                 </div>
             </div>
-            <div class="glass p-5 rounded-2xl border-l-4 border-blue-500">
-                <p class="text-slate-500 text-xs mb-1">年化波動度 (Volatility)</p>
-                <p class="text-xl font-tech font-bold text-white">17.69%</p>
-            </div>
-            <div class="glass p-5 rounded-2xl border-l-4 border-rose-500">
-                <p class="text-slate-500 text-xs mb-1">最大回撤 (MDD)</p>
-                <p class="text-xl font-tech font-bold text-rose-400">-2.03%</p>
-            </div>
-            <div class="glass p-5 rounded-2xl border-l-4 border-amber-500">
-                <p class="text-slate-500 text-xs mb-1">支出覆蓋率 (Coverage)</p>
-                <p class="text-xl font-tech font-bold text-amber-400">1.71x</p>
+
+            <div class="glass p-6 rounded-3xl">
+                <h3 class="text-xs font-bold text-slate-500 uppercase mb-4 tracking-widest">Risk Analytics</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-slate-400">夏普比率 (Sharpe)</span>
+                        <span class="font-tech text-emerald-400">3.41</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-slate-400">年化波動度</span>
+                        <span class="font-tech text-white">17.6%</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-slate-400">最大回撤 (MDD)</span>
+                        <span class="font-tech text-rose-400">-2.03%</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-            <div class="glass p-8 rounded-3xl lg:col-span-1">
-                <h3 class="text-md font-bold mb-6 flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>策略資金容量</h3>
-                <div class="relative h-64"><canvas id="allocationChart"></canvas></div>
-            </div>
-            <div class="glass p-8 rounded-3xl lg:col-span-2">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+            <div class="lg:col-span-8 glass p-8 rounded-3xl">
                 <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-md font-bold flex items-center"><span class="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>淨值曲線 (NAV Trend)</h3>
-                    <div class="text-[10px] text-slate-500">Benchmark: 10.0</div>
+                    <h3 class="font-bold flex items-center tracking-tight"><span class="w-3 h-3 bg-blue-500 rounded-full mr-3"></span>NAV PERFORMANCE HISTORY</h3>
+                    <div class="flex space-x-2">
+                        <span class="px-2 py-1 bg-white/5 rounded text-[10px] text-slate-400 uppercase">Logarithmic</span>
+                    </div>
                 </div>
-                <div class="h-64"><canvas id="performanceChart"></canvas></div>
+                <div class="h-[300px]"><canvas id="performanceChart"></canvas></div>
+            </div>
+            
+            <div class="lg:col-span-4 glass p-8 rounded-3xl">
+                <h3 class="font-bold mb-6 flex items-center tracking-tight"><span class="w-3 h-3 bg-amber-500 rounded-full mr-3"></span>STRATEGY CAPACITY</h3>
+                <div class="h-[300px] relative"><canvas id="allocationChart"></canvas></div>
+            </div>
+
+            <div class="lg:col-span-6 glass p-8 rounded-3xl">
+                <h3 class="font-bold mb-6 flex items-center tracking-tight text-rose-400"><span class="w-3 h-3 bg-rose-400 rounded-full mr-3"></span>UNDERWATER (DRAWDOWN %)</h3>
+                <div class="h-[200px]"><canvas id="drawdownChart"></canvas></div>
+            </div>
+
+            <div class="lg:col-span-6 glass p-8 rounded-3xl">
+                <h3 class="font-bold mb-6 flex items-center tracking-tight text-emerald-400"><span class="w-3 h-3 bg-emerald-400 rounded-full mr-3"></span>NET CASHFLOW BY MONTH</h3>
+                <div class="h-[200px]"><canvas id="cashflowChart"></canvas></div>
             </div>
         </div>
 
-        <div class="glass p-8 rounded-3xl overflow-hidden animate__animated animate__fadeInUp">
-            <h3 class="text-lg font-bold mb-6 flex justify-between items-center">
-                <span>權益持有與風險分布</span>
-                <span class="text-xs font-normal text-slate-500 italic">Data synchronized from local CSV</span>
-            </h3>
+        <div class="glass p-8 rounded-3xl overflow-hidden mb-20 animate__animated animate__fadeInUp">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-xl font-bold tracking-tighter uppercase italic">Shareholder Equity Matrix</h3>
+                <button class="text-[10px] border border-slate-700 px-3 py-1 rounded-full hover:bg-white/5 transition">EXPORT CSV</button>
+            </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
                     <thead>
-                        <tr class="text-slate-500 text-xs uppercase tracking-wider border-b border-slate-800">
-                            <th class="pb-4">股東與資金來源</th>
-                            <th class="pb-4">平均成本</th>
-                            <th class="pb-4">投入本金</th>
-                            <th class="pb-4">當前權益</th>
-                            <th class="pb-4 text-right">實現/未實現損益</th>
+                        <tr class="text-slate-500 text-[10px] uppercase tracking-[0.2em] border-b border-slate-800">
+                            <th class="pb-6">Entity</th>
+                            <th class="pb-6 text-center">Avg Cost</th>
+                            <th class="pb-6 text-center">Principal</th>
+                            <th class="pb-6 text-center">Equity Value</th>
+                            <th class="pb-6 text-right">PnL / ROI</th>
                         </tr>
                     </thead>
-                    <tbody id="shareholder-rows" class="divide-y divide-slate-800 text-sm md:text-base"></tbody>
+                    <tbody id="shareholder-rows" class="divide-y divide-slate-800/50"></tbody>
                 </table>
             </div>
         </div>
     </div>
 
     <script>
+        // 數據集
         const RAW_DATA = {
             "dashboard": [
                 { "name": "我 (管理者)", "avg_cost": 9.946, "principal": 1096486, "current": 1187478, "pnl": 90991, "roi": 0.0829, "type": "owner" },
@@ -128,76 +147,63 @@
                 { "name": "IB 美股", "value": 731638 }
             ],
             "pnl": [
-                { "date": "12/31", "nav": 10.00 }, { "date": "01/03", "nav": 9.80 }, { "date": "01/14", "nav": 9.89 },
-                { "date": "01/20", "nav": 10.39 }, { "date": "01/22", "nav": 10.34 }, { "date": "01/25", "nav": 10.31 },
-                { "date": "01/28", "nav": 10.50 }, { "date": "01/31", "nav": 10.51 }, { "date": "02/03", "nav": 10.32 },
-                { "date": "02/05", "nav": 10.42 }, { "date": "02/19", "nav": 10.44 }, { "date": "02/25", "nav": 10.77 }
+                { "date": "12/31", "nav": 10.00, "dd": 0 }, { "date": "01/03", "nav": 9.797, "dd": -2.03 }, { "date": "01/14", "nav": 9.89, "dd": -1.1 },
+                { "date": "01/20", "nav": 10.389, "dd": 0 }, { "date": "01/22", "nav": 10.34, "dd": -0.47 }, { "date": "01/25", "nav": 10.308, "dd": -0.78 },
+                { "date": "01/28", "nav": 10.502, "dd": 0 }, { "date": "01/31", "nav": 10.514, "dd": 0 }, { "date": "02/03", "nav": 10.319, "dd": -1.85 },
+                { "date": "02/05", "nav": 10.417, "dd": -0.92 }, { "date": "02/19", "nav": 10.437, "dd": -0.73 }, { "date": "02/25", "nav": 10.771, "dd": 0 }
             ]
         };
 
-        const currentNAV = 10.771;
-
+        // 渲染表格
         const tbody = document.getElementById('shareholder-rows');
         RAW_DATA.dashboard.forEach(s => {
-            const isProfit = currentNAV > s.avg_cost;
-            const typeLabel = s.type === 'leverage' 
-                ? '<span class="ml-2 text-[10px] border border-amber-500/50 text-amber-500 px-1 rounded">LEVERAGE</span>'
-                : '';
+            const isLeverage = s.type === 'leverage';
             const row = `
-                <tr class="hover:bg-slate-800/50 transition-colors">
-                    <td class="py-5">
-                        <span class="font-bold ${s.type === 'leverage' ? 'text-amber-400' : 'text-blue-400'}">${s.name}</span>
-                        ${typeLabel}
+                <tr class="hover:bg-white/5 transition-all group">
+                    <td class="py-6">
+                        <div class="text-sm font-bold ${isLeverage ? 'text-amber-400' : 'text-blue-400'}">${s.name}</div>
+                        <div class="text-[10px] text-slate-500 font-tech">${isLeverage ? 'INSTITUTIONAL DEBT' : 'DIRECT EQUITY'}</div>
                     </td>
-                    <td class="py-5 font-tech ${isProfit ? 'text-emerald-400' : 'text-rose-400'}">${s.avg_cost.toFixed(3)}</td>
-                    <td class="py-5 font-tech text-slate-400">$${s.principal.toLocaleString()}</td>
-                    <td class="py-5 font-tech text-white font-bold">$${s.current.toLocaleString()}</td>
-                    <td class="py-5 text-right">
-                        <span class="text-emerald-400 font-bold">+$${s.pnl.toLocaleString()}</span>
-                        <div class="text-xs text-slate-500 font-tech">${(s.roi * 100).toFixed(2)}%</div>
+                    <td class="py-6 text-center font-tech text-xs">${s.avg_cost.toFixed(3)}</td>
+                    <td class="py-6 text-center font-tech text-xs text-slate-400">$${s.principal.toLocaleString()}</td>
+                    <td class="py-6 text-center font-tech text-white font-bold">$${s.current.toLocaleString()}</td>
+                    <td class="py-6 text-right font-tech">
+                        <div class="text-emerald-400 font-bold">+$${s.pnl.toLocaleString()}</div>
+                        <div class="text-[10px] text-slate-500">${(s.roi * 100).toFixed(2)}% ROI</div>
                     </td>
                 </tr>`;
             tbody.innerHTML += row;
         });
 
-        new Chart(document.getElementById('allocationChart'), {
-            type: 'doughnut',
-            data: {
-                labels: RAW_DATA.strategy.map(x => x.name),
-                datasets: [{
-                    data: RAW_DATA.strategy.map(x => x.value),
-                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
-                    borderWidth: 0,
-                    hoverOffset: 10
-                }]
-            },
-            options: { maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#94a3b8', font: { size: 10 } } } }, cutout: '70%' }
-        });
+        // 圖表配置
+        const chartOptions = { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b', font: { family: 'Orbitron', size: 9 } } }, x: { grid: { display: false }, ticks: { color: '#64748b', font: { family: 'Orbitron', size: 9 } } } } };
 
+        // 1. NAV 圖
         new Chart(document.getElementById('performanceChart'), {
             type: 'line',
-            data: {
-                labels: RAW_DATA.pnl.map(x => x.date),
-                datasets: [{
-                    label: 'NAV',
-                    data: RAW_DATA.pnl.map(x => x.nav),
-                    borderColor: '#10b981',
-                    borderWidth: 3,
-                    pointBackgroundColor: '#10b981',
-                    pointRadius: 3,
-                    backgroundColor: 'rgba(16, 185, 129, 0.05)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8', font: { family: 'Orbitron' } } },
-                    x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { family: 'Orbitron', size: 10 } } }
-                }
-            }
+            data: { labels: RAW_DATA.pnl.map(x => x.date), datasets: [{ data: RAW_DATA.pnl.map(x => x.nav), borderColor: '#3b82f6', borderWidth: 2, fill: true, backgroundColor: 'rgba(59,130,246,0.05)', tension: 0.4 }] },
+            options: chartOptions
+        });
+
+        // 2. 圓餅圖
+        new Chart(document.getElementById('allocationChart'), {
+            type: 'doughnut',
+            data: { labels: RAW_DATA.strategy.map(x => x.name), datasets: [{ data: RAW_DATA.strategy.map(x => x.value), backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'], borderWidth: 0 }] },
+            options: { ...chartOptions, cutout: '80%', plugins: { legend: { display: true, position: 'bottom', labels: { color: '#94a3b8', font: { size: 10 } } } } }
+        });
+
+        // 3. 水下圖 (Drawdown)
+        new Chart(document.getElementById('drawdownChart'), {
+            type: 'line',
+            data: { labels: RAW_DATA.pnl.map(x => x.date), datasets: [{ data: RAW_DATA.pnl.map(x => x.dd), borderColor: '#f43f5e', backgroundColor: 'rgba(244,63,94,0.1)', fill: true, tension: 0.2, pointRadius: 0 }] },
+            options: { ...chartOptions, scales: { ...chartOptions.scales, y: { ...chartOptions.scales.y, max: 0 } } }
+        });
+
+        // 4. 月度現金流 (模擬數據：獲利 - 6萬支出)
+        new Chart(document.getElementById('cashflowChart'), {
+            type: 'bar',
+            data: { labels: ['2025-12', '2026-01', '2026-02'], datasets: [{ data: [0, 85000, 124000], backgroundColor: '#10b981' }] },
+            options: chartOptions
         });
     </script>
 </body>
